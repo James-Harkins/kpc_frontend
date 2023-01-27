@@ -5,6 +5,8 @@ import './App.css';
 import Home from './components/pages/Home';
 import Register from './components/pages/Register';
 import Login from './components/pages/Login';
+import { LoginForm } from './components/LoginForm';
+import { RegisterForm } from './components/RegisterForm';
 
 function App() {
   return (
