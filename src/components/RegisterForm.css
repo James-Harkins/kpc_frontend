@@ -49,3 +49,10 @@ button {
     margin: 0.5rem 0;
     color: #fff;
 }
+
+.auth-form-container > h1 {
+    color: #fff;
+    font-size: 100px;
+    margin-top: -50px;
+    text-align: center;
+  }

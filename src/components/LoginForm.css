@@ -11,8 +11,8 @@ label {
 }
 
 input {
-    margin: 0.5rem 0;
-    padding: 1rem;
+    margin: 0.25rem 0;
+    padding: .5rem;
 }
 
 button {
@@ -28,3 +28,10 @@ button {
     margin: 0.5rem 0;
     color: #fff;
 }
+
+.auth-form-container > h1 {
+    color: #fff;
+    font-size: 100px;
+    margin-top: -50px;
+    text-align: center;
+  }

@@ -12,6 +12,7 @@ export default function LoginForm() {
 
     return (
     <div className="auth-form-container">
+        <h1>LOG IN</h1>
         <form className="login-form" onSubmit={handleSubmit}>
             <label htmlFor="email">E-mail</label>
             <input value={email} type="email" placeholder="E-mail address" id="email" name="email"/>

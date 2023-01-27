@@ -15,6 +15,7 @@ export default function RegisterForm() {
 
     return (
     <div className="auth-form-container">
+        <h1>REGISTER</h1>
         <form className="register-form" onSubmit={handleSubmit}>
             <label htmlFor="firstName">First name</label>
             <input value={firstName} type="firstName" placeholder="First name" id="firstName" name="firstName"/>
