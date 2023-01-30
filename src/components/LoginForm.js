@@ -1,26 +1,79 @@
-import React, { useState } from 'react';
+import React, { useState, Component } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import './LoginForm.css'
 
-export default function LoginForm() {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log(email);
-    }
+class LoginForm extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { 
+          email: '',
+          password: '',
+          errors: ''
+         };
+      }
 
-    return (
-    <div className="auth-form-container">
-        <h1>LOG IN</h1>
-        <form className="login-form" onSubmit={handleSubmit}>
-            <label htmlFor="email">E-mail</label>
-            <input defaultValue={email} type="email" placeholder="E-mail address" id="email" name="email"/>
-            <label htmlFor="password">Password</label>
-            <input defaultValue={password} type="password" placeholder="********" id="password" name="password"/>
-            <button className="submit-button" type="submit" fullWidth>Log In</button>
-        </form>
-        <Link className="redirect-link" to="/register">Don't have an account set up? Register here.</Link>
-    </div>
-  )
+    handleChange = (event) => {
+        const {name, value} = event.target
+        this.setState({
+          [name]: value
+        })
+      };
+
+    handleSubmit = (event) => {
+        event.preventDefault()
+        const {email, password} = this.state
+        let golfer = {
+          email: email,
+          password: password
+        }
+        
+        axios.post('http://localhost:3001/api/v1/login?api_key=f61d4767c07c2d2c922e99433bba76c74219feca', {golfer}, {withCredentials: true})
+            .then(response => {
+            if (response.data.logged_in) {
+                this.props.handleLogin(response.data)
+                this.redirect()
+            } else {
+                this.setState({
+                errors: response.data.errors
+                })
+            }
+            })
+            .catch(error => console.log('api errors:', error))
+      };
+    
+    redirect = () => {
+        this.props.history.push('/dashboard')
+      };
+    
+    handleErrors = () => {
+        return (
+        <div>
+            <ul>
+            {this.state.errors.map(error => {
+            return <li key={error}>{error}</li>
+            })}
+            </ul>
+        </div>
+        )
+      };
+    
+    render() {
+        const {email, password} = this.state
+        return (
+            <div className="auth-form-container">
+                <h1>LOG IN</h1>
+                <form className="login-form" onSubmit={this.handleSubmit}>
+                    <label htmlFor="email">E-mail</label>
+                    <input defaultValue={email} type="text" placeholder="E-mail address" id="email" name="email" onChange={this.handleChange}/>
+                    <label htmlFor="password">Password</label>
+                    <input defaultValue={password} type="password" placeholder="********" id="password" name="password" onChange={this.handleChange}/>
+                    <button className="submit-button" type="submit">Log In</button>
+                </form>
+                <Link className="redirect-link" to="/register">Don't have an account set up? Register here.</Link>
+            </div>
+        );
+    }
 }
+
+export default LoginForm;
