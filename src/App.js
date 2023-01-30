@@ -12,26 +12,26 @@ class App extends Component {
     super(props);
     this.state = { 
       isLoggedIn: false,
-      user: {}
+      golfer: {}
      };
   };
 
   handleLogin = (data) => {
     this.setState({
       isLoggedIn: true,
-      user: data.user
+      golfer: data
     })
   };
 
   handleLogout = () => {
     this.setState({
     isLoggedIn: false,
-    user: {}
+    golfer: {}
     })
   };
 
   loginStatus = () => {
-    axios.get('http://localhost:3001/logged_in?api_key=f61d4767c07c2d2c922e99433bba76c74219feca', 
+    axios.get('http://localhost:3001/api/v1/logged_in?api_key=f61d4767c07c2d2c922e99433bba76c74219feca', 
    {withCredentials: true})    
     .then(response => {
       if (response.data.logged_in) {

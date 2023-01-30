@@ -1,5 +1,5 @@
 import React, { useState, Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
 import './RegisterForm.css'
 
@@ -36,9 +36,8 @@ class RegisterForm extends Component {
 
         axios.post('http://localhost:3001/api/v1/golfers?api_key=f61d4767c07c2d2c922e99433bba76c74219feca', {golfer}, {withCredentials: true})
             .then(response => {
-            if (response.data.status === 'created') {
-                this.props.handleLogin(response.data)
-                this.redirect()
+            if (response.data.data.id) {
+                this.redirect_to_login()
             } else {
                 this.setState({
                 errors: response.data.errors
@@ -48,8 +47,8 @@ class RegisterForm extends Component {
             .catch(error => console.log('api errors:', error))
       };
     
-    redirect = () => {
-        this.props.history.push('/login')
+    redirect_to_login = () => {
+        return Redirect('/login');
       };
     
       handleErrors = () => {
