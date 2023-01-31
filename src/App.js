@@ -1,5 +1,5 @@
 import React, { useState, Component } from 'react';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route, useHistory} from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
 import Navbar from './components/Navbar';
@@ -52,11 +52,11 @@ class App extends Component {
       <>
         <Router>
           <Navbar />
-          <Switch>
-            <Route path='/' exact component={Home}/>
-            <Route path='/register' exact component={Register}/>
-            <Route path='/login' exact component={Login}/>
-          </Switch>
+          <Routes>
+            <Route path='/' exact element={<Home/>}/>
+            <Route path='/register' exact element={<Register/>}/>
+            <Route path='/login' exact element={<Login/>}/>
+          </Routes>
         </Router>
       </>
     );

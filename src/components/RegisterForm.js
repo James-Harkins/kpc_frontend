@@ -1,7 +1,8 @@
 import React, { useState, Component } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import axios from 'axios';
 import './RegisterForm.css'
+import { withRouter } from './withRouter';
 
 class RegisterForm extends Component {
     constructor(props) {
@@ -33,22 +34,16 @@ class RegisterForm extends Component {
           password: password,
           password_confirmation: password_confirmation
         }
+        
+        let url = 'http://localhost:3001/api/v1/golfers?api_key=f61d4767c07c2d2c922e99433bba76c74219feca'
 
-        axios.post('http://localhost:3001/api/v1/golfers?api_key=f61d4767c07c2d2c922e99433bba76c74219feca', {golfer}, {withCredentials: true})
-            .then(response => {
+        axios.post(url, {golfer}, {withCredentials: true}).then(response => {
             if (response.data.data.id) {
-                this.redirect_to_login()
+                this.props.navigate('/login');
             } else {
-                this.setState({
-                errors: response.data.errors
-                })
+                this.setState({errors: response.data.errors})
             }
-            })
-            .catch(error => console.log('api errors:', error))
-      };
-    
-    redirect_to_login = () => {
-        return Redirect('/login');
+        }).catch(error => console.log('api errors:', error))
       };
     
       handleErrors = () => {
@@ -87,4 +82,4 @@ class RegisterForm extends Component {
     };
 }
 
-export default RegisterForm;
+export default withRouter(RegisterForm);

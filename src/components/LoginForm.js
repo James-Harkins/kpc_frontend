@@ -1,7 +1,9 @@
 import React, { useState, Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import './LoginForm.css'
+import './LoginForm.css';
+import { withRouter } from './withRouter';
+import { handleLogin } from '../App'
 
 class LoginForm extends Component {
     constructor(props) {
@@ -32,7 +34,7 @@ class LoginForm extends Component {
             .then(response => {
             if (response.data.data.id) {
                 this.props.handleLogin(response.data.data)
-                this.redirect()
+                this.props.navigate('/dashboard');
             } else {
                 this.setState({
                 errors: response.data.errors
@@ -40,10 +42,6 @@ class LoginForm extends Component {
             }
             })
             .catch(error => console.log('api errors:', error))
-      };
-    
-    redirect = () => {
-        this.props.history.push('/dashboard')
       };
     
     handleErrors = () => {
@@ -76,4 +74,4 @@ class LoginForm extends Component {
     }
 }
 
-export default LoginForm;
+export default withRouter(LoginForm);
