@@ -30,7 +30,9 @@ class LoginForm extends Component {
           password: password
         }
         
-        axios.post('http://localhost:3001/api/v1/login?api_key=f61d4767c07c2d2c922e99433bba76c74219feca', {golfer}, {withCredentials: true})
+        let url = 'http://localhost:3001/api/v1/login?'.concat(process.env.REACT_APP_API_KEY)
+        
+        axios.post(url, {golfer}, {withCredentials: true})
             .then(response => {
             if (response.data.data.id) {
                 // this.props.handleLogin(response.data.data)

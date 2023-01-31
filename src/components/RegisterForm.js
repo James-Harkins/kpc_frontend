@@ -36,7 +36,7 @@ class RegisterForm extends Component {
           password_confirmation: password_confirmation
         }
         
-        let url = 'http://localhost:3001/api/v1/golfers?api_key=f61d4767c07c2d2c922e99433bba76c74219feca'
+        let url = 'http://localhost:3001/api/v1/golfers?api_key='.concat(process.env.REACT_APP_API_KEY)
 
         axios.post(url, {golfer}, {withCredentials: true}).then(response => {
             if (response.data.data.id) {
