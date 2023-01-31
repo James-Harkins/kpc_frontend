@@ -3,6 +3,7 @@ import { Link} from 'react-router-dom';
 import axios from 'axios';
 import './RegisterForm.css'
 import { withRouter } from './withRouter';
+import App from '../App';
 
 class RegisterForm extends Component {
     constructor(props) {

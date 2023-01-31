@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './LoginForm.css';
 import { withRouter } from './withRouter';
-import { handleLogin } from '../App'
+import App from '../App'
 
 class LoginForm extends Component {
     constructor(props) {
@@ -33,6 +33,7 @@ class LoginForm extends Component {
         axios.post('http://localhost:3001/api/v1/login?api_key=f61d4767c07c2d2c922e99433bba76c74219feca', {golfer}, {withCredentials: true})
             .then(response => {
             if (response.data.data.id) {
+                // this.props.handleLogin(response.data.data)
                 this.props.handleLogin(response.data.data)
                 this.props.navigate('/dashboard');
             } else {
