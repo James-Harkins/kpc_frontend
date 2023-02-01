@@ -6,8 +6,6 @@ import Navbar from './components/Navbar';
 import Home from './components/pages/Home';
 import Register from './components/pages/Register';
 import Login from './components/pages/Login';
-import LoginForm from './components/LoginForm';
-import RegisterForm from './components/RegisterForm';
 
 class App extends Component {
   constructor(props) {
@@ -57,7 +55,7 @@ class App extends Component {
           <Routes>
             <Route path='/' exact element={<Home/>}/>
             <Route path='/register' exact element={<Register/>}/>
-            <Route path='/login' exact element={<Login/>}/>
+            <Route path='/login' exact element={<Login handleLogin={this.handleLogin}/>}/>
           </Routes>
         </Router>
       </>
