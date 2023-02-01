@@ -1,11 +1,12 @@
-import React, { useState, Component } from 'react';
-import {BrowserRouter as Router, Routes, Route, useHistory} from 'react-router-dom';
+import React, { Component } from 'react';
+import {BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
 import Navbar from './components/Navbar';
 import Home from './components/pages/Home';
 import Register from './components/pages/Register';
 import Login from './components/pages/Login';
+import Dashboard from './components/pages/Dashboard';
 
 class App extends Component {
   constructor(props) {
@@ -51,11 +52,12 @@ class App extends Component {
     return (
       <>
         <Router>
-          <Navbar />
+          <Navbar authStatus={this.props.isLoggedIn} authGolfer={this.props.golfer}/>
           <Routes>
             <Route path='/' exact element={<Home/>}/>
-            <Route path='/register' exact element={<Register/>}/>
-            <Route path='/login' exact element={<Login handleLogin={this.handleLogin}/>}/>
+            <Route path='/register' exact element={<Register authStatus={this.props.isLoggedIn} authGolfer={this.props.golfer}/>}/>
+            <Route path='/login' exact element={<Login handleLogin={this.handleLogin} authStatus={this.props.isLoggedIn} authGolfer={this.props.golfer}/>}/>
+            <Route path='/dashboard' exact element={<Dashboard handleLogin={this.handleLogin} authStatus={this.props.isLoggedIn} authGolfer={this.props.golfer}/>}/>
           </Routes>
         </Router>
       </>
