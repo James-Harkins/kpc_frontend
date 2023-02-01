@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import './Navbar.css';
 import '../App'
 
-function Navbar() {
+function AuthNavbar() {
   const [click, setClick] = useState(false);
 
   const handleClick = () => setClick(!click);
@@ -28,13 +28,13 @@ function Navbar() {
               </Link>
             </li>
             <li className='nav-item'>
-              <Link to='/login' className='nav-links' onClick={closeMobileMenu}>
-                LOG IN
+              <Link to='/trips' className='nav-links' onClick={closeMobileMenu}>
+                TRIPS
               </Link>
             </li>
             <li className='nav-item'>
-              <Link to='/register' className='nav-links' onClick={closeMobileMenu}>
-                REGISTER
+              <Link to='/logout' className='nav-links' onClick={closeMobileMenu}>
+                LOG OUT
               </Link>
             </li>
           </ul>
@@ -44,4 +44,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default AuthNavbar;

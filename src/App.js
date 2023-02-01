@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
-import Navbar from './components/Navbar';
+import UnauthNavbar from './components/UnauthNavbar';
+import AuthNavbar from './components/AuthNavbar';
 import Home from './components/pages/Home';
 import Register from './components/pages/Register';
 import Login from './components/pages/Login';
@@ -18,10 +19,12 @@ class App extends Component {
   };
 
   handleLogin = (data) => {
+    debugger;
     this.setState({
       isLoggedIn: true,
       golfer: data
     })
+    debugger;
   };
 
   handleLogout = () => {
@@ -52,7 +55,8 @@ class App extends Component {
     return (
       <>
         <Router>
-          <Navbar authStatus={this.props.isLoggedIn} authGolfer={this.props.golfer}/>
+          {this.state.isLoggedIn ? <AuthNavbar /> : <UnauthNavbar/>}
+          {/* <UnauthNavbar /> */}
           <Routes>
             <Route path='/' exact element={<Home/>}/>
             <Route path='/register' exact element={<Register authStatus={this.props.isLoggedIn} authGolfer={this.props.golfer}/>}/>
