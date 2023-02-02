@@ -19,12 +19,10 @@ class App extends Component {
   };
 
   handleLogin = (data) => {
-    debugger;
     this.setState({
       isLoggedIn: true,
       golfer: data
     })
-    debugger;
   };
 
   handleLogout = () => {
@@ -34,31 +32,30 @@ class App extends Component {
     })
   };
 
-  loginStatus = () => {
-    axios.get('http://localhost:3001/api/v1/logged_in?api_key='.concat(process.env.REACT_APP_API_KEY), 
-   {withCredentials: true})    
-    .then(response => {
-      if (response.data.logged_in) {
-        this.handleLogin(response)
-      } else {
-        this.handleLogout()
-      }
-    })
-    .catch(error => console.log('api errors:', error))
-  };
+  // loginStatus = () => {
+  //   axios.get('http://localhost:3001/api/v1/logged_in?api_key='.concat(process.env.REACT_APP_API_KEY), 
+  //  {withCredentials: true})    
+  //   .then(response => {
+  //     if (response.data.logged_in) {
+  //       this.handleLogin(response)
+  //     } else {
+  //       this.handleLogout()
+  //     }
+  //   })
+  //   .catch(error => console.log('api errors:', error))
+  // };
 
-  componentDidMount() {
-    this.loginStatus()
-  };
+  // componentDidMount() {
+  //   this.loginStatus()
+  // };
   
   render() {
     return (
       <>
         <Router>
-          {this.state.isLoggedIn ? <AuthNavbar /> : <UnauthNavbar/>}
-          {/* <UnauthNavbar /> */}
+          {this.state.isLoggedIn ? <AuthNavbar handleLogout={this.handleLogout} loginStatus={this.loginStatus}/> : <UnauthNavbar/>}
           <Routes>
-            <Route path='/' exact element={<Home/>}/>
+            <Route path='/' exact element={<Home loginStatus={this.loginStatus}/>}/>
             <Route path='/register' exact element={<Register authStatus={this.props.isLoggedIn} authGolfer={this.props.golfer}/>}/>
             <Route path='/login' exact element={<Login handleLogin={this.handleLogin} authStatus={this.props.isLoggedIn} authGolfer={this.props.golfer}/>}/>
             <Route path='/dashboard' exact element={<Dashboard handleLogin={this.handleLogin} authStatus={this.props.isLoggedIn} authGolfer={this.props.golfer}/>}/>
