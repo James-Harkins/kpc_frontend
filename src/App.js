@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
 import UnauthNavbar from './components/UnauthNavbar';
@@ -58,7 +58,7 @@ class App extends Component {
             <Route path='/' exact element={<Home loginStatus={this.loginStatus}/>}/>
             <Route path='/register' exact element={<Register authStatus={this.props.isLoggedIn} authGolfer={this.props.golfer}/>}/>
             <Route path='/login' exact element={<Login handleLogin={this.handleLogin} authStatus={this.props.isLoggedIn} authGolfer={this.props.golfer}/>}/>
-            <Route path='/dashboard' exact element={<Dashboard handleLogin={this.handleLogin} authStatus={this.props.isLoggedIn} authGolfer={this.props.golfer}/>}/>
+            <Route path='/dashboard' exact element={this.state.isLoggedIn ? <Dashboard/> : <Navigate to="/login" replace={true} />}/>
           </Routes>
         </Router>
       </>
