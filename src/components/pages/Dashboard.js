@@ -1,10 +1,12 @@
 import React from 'react'
 import '../../App.css'
 
-function Dashboard () {
+function Dashboard (props) {
     return (
         <>
-            <h1>Dashboard</h1>
+        <div>
+            <h1>Welcome back, {props.golfer.attributes.first_name}!</h1>
+        </div>
         </>
     );
 }

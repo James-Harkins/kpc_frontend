@@ -48,7 +48,7 @@ class AuthNavbar extends Component {
                 <ul className={this.state.click ? 'nav-menu active' : 'nav-menu'}>
                 <li className='nav-item'>
                     <Link to='/dashboard' className='nav-links' onClick={this.closeMobileMenu}>
-                    MY DASHBOARD
+                    TRIPS
                     </Link>
                 </li>
                 {/* <li className='nav-item'>
