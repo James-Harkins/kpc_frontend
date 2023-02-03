@@ -7,13 +7,15 @@ import Home from './components/pages/Home';
 import Register from './components/pages/Register';
 import Login from './components/pages/Login';
 import Dashboard from './components/pages/Dashboard';
+import axios from 'axios';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = { 
       isLoggedIn: false,
-      golfer: {}
+      golfer: {},
+      nextTrip: {}
      };
   };
 
@@ -22,6 +24,7 @@ class App extends Component {
       isLoggedIn: true,
       golfer: data
     })
+    this.getNextTrip();
   };
 
   handleLogout = () => {
@@ -30,6 +33,21 @@ class App extends Component {
     golfer: {}
     })
   };
+
+  setNextTrip = (data) => {
+    this.setState({
+      nextTrip: data
+    })
+  }
+
+  getNextTrip = () => {
+    axios.get('http://localhost:3001/api/v1/next_trip?api_key='.concat(process.env.REACT_APP_API_KEY), 
+   {withCredentials: true})    
+    .then(response => {
+      debugger;
+      this.setNextTrip(response.data)
+    })
+  }
 
   // loginStatus = () => {
   //   axios.get('http://localhost:3001/api/v1/logged_in?api_key='.concat(process.env.REACT_APP_API_KEY), 
@@ -57,7 +75,7 @@ class App extends Component {
             <Route path='/' exact element={<Home loginStatus={this.loginStatus}/>}/>
             <Route path='/register' exact element={<Register authStatus={this.props.isLoggedIn} authGolfer={this.props.golfer}/>}/>
             <Route path='/login' exact element={<Login handleLogin={this.handleLogin} authStatus={this.props.isLoggedIn} authGolfer={this.props.golfer}/>}/>
-            <Route path='/dashboard' exact element={this.state.isLoggedIn ? <Dashboard golfer={this.state.golfer}/> : <Navigate to="/login" replace={true} />}/>
+            <Route path='/dashboard' exact element={this.state.isLoggedIn ? <Dashboard golfer={this.state.golfer} nextTrip={this.state.nextTrip}/> : <Navigate to="/login" replace={true} />}/>
           </Routes>
         </Router>
       </>
