@@ -7,17 +7,6 @@ function Dashboard (props) {
         <>
         <div>
             <h1>Welcome back, {props.golfer.attributes.first_name}!</h1>
-            <div>
-                {trips.map(trip => {
-                    return (
-                    <div key={trip.id}>
-                        <h3>KPC {trip.trip_number}</h3>
-                        <h3>Total Cost: ${trip.total_cost}</h3>
-                        <hr />
-                    </div>
-                    );
-                })}    
-            </div>
         </div>
         </>
     );

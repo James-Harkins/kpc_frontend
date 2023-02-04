@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './Login.css';
@@ -9,8 +9,6 @@ function Login(props) {
   const [email, setEmail] = useState('');
 
   const [password, setPassword] = useState('');
-
-  const [errors, setErrors] = useState('');
 
   const handleChange = (event) => {
     const {name, value} = event.target
@@ -36,37 +34,25 @@ function Login(props) {
         if(response.data.data.id) {
             props.handleLogin(response.data.data)
             props.navigate('/dashboard');
-        } else {
-          setErrors(response.data.errors)
         }
       }
     ) .catch(error => console.log('api errors:', error))
   }
-
-  const handleErrors = () => {
-    <div>
-      <ul>
-        {this.state.errors.map(error => {
-        return <li key={error}>{error}</li>
-        })}
-      </ul>
-    </div>
-  };
   
   return (
-  <div className="login">
-      <div className="auth-form-container">
-      <h1>LOG IN</h1>
-          <form className="login-form" onSubmit={handleSubmit}>
-              <label htmlFor="email">E-mail</label>
-              <input defaultValue={email} type="text" placeholder="E-mail address" id="email" name="email" onChange={handleChange}/>
-              <label htmlFor="password">Password</label>
-              <input defaultValue={password} type="password" placeholder="********" id="password" name="password" onChange={handleChange}/>
-              <button className="submit-button" type="submit">Log In</button>
-          </form>
-          <Link className="redirect-link" to="/register">Don't have an account set up? Register here.</Link>
-      </div>
-  </div>
+    <div className="login">
+        <div className="auth-form-container">
+        <h1>LOG IN</h1>
+            <form className="login-form" onSubmit={handleSubmit}>
+                <label htmlFor="email">E-mail</label>
+                <input defaultValue={email} type="text" placeholder="E-mail address" id="email" name="email" onChange={handleChange}/>
+                <label htmlFor="password">Password</label>
+                <input defaultValue={password} type="password" placeholder="********" id="password" name="password" onChange={handleChange}/>
+                <button className="submit-button" type="submit">Log In</button>
+            </form>
+            <Link className="redirect-link" to="/register">Don't have an account set up? Register here.</Link>
+        </div>
+    </div>
   );
 }
 
