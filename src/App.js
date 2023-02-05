@@ -19,6 +19,7 @@ function App() {
   const handleLogin = (data) => {
     setIsLoggedIn(true)
     setGolfer(data)
+    debugger;
     getNextTrip();
   };
 
@@ -41,9 +42,12 @@ function App() {
         {isLoggedIn ? <AuthNavbar handleLogout={handleLogout}/> : <UnauthNavbar/>}
         <Routes>
           <Route path='/' exact element={<Home/>}/>
-          <Route path='/register' exact element={<Register authStatus={isLoggedIn} authGolfer={golfer}/>}/>
-          <Route path='/login' exact element={<Login handleLogin={handleLogin} authStatus={isLoggedIn} authGolfer={golfer}/>}/>
-          <Route path='/dashboard' exact element={isLoggedIn ? <Dashboard golfer={golfer} nextTrip={nextTrip}/> : <Navigate to="/login" replace={true} />}/>
+          <Route path='/register' exact element={<Register/>}/>
+          <Route path='/login' exact element={<Login handleLogin={handleLogin}/>}/>
+          <Route path='/dashboard' exact element={isLoggedIn ? 
+            <Dashboard golfer={golfer} nextTrip={nextTrip}/> : 
+            <Navigate to="/login" replace={true} />
+            }/>
         </Routes>
       </Router>
     </>
