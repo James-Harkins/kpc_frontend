@@ -35,7 +35,7 @@ function App() {
     axios.get('http://localhost:3001/api/v1/next_trip?api_key='.concat(process.env.REACT_APP_API_KEY), 
     {withCredentials: true})    
     .then(response => {
-      setNextTrip(response.data)
+      setNextTrip(response.data.data)
     })
   }
 

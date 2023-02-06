@@ -97,9 +97,9 @@
     transition: all 0.2s linear;
   }
   
-  .trip__block__img:hover {
+  /* .trip__block__img:hover {
     transform: scale(1.1);
-  }
+  } */
   
   .trip__block__info {
     background-color: #fff;
