@@ -1,7 +1,7 @@
 .trips {
     display: flex;
     height: 90vh;
-    background-image: url('../../../public/images/course_1.jpeg');
+    background-image: url('../../../public/images/course_7.jpeg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -10,13 +10,11 @@
     justify-content: center;
     text-align: center;
     flex-flow: column;
+    color: #fff;
+    font-size: 40px;
   }
 
-  h1 {
-    text-align: center;
-  }
-  
-  /* .trips__container {
+  .trips__container {
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -30,11 +28,11 @@
     margin: 50px 0 45px;
   }
   
-  .trips__blocks {
+  .trip__blocks {
     margin-bottom: 24px;
-  } */
+  }
   
-  .trips__block {
+  .trip__block {
     flex-flow: column;
     align-items: center;
     max-width: 1120px;
@@ -45,7 +43,7 @@
     border-radius: 10px;
   }
   
-  .trips__block__div {
+  .trip__block__div {
     display: flex;
     flex-flow: column;
     width: 100%;
@@ -57,7 +55,7 @@
     text-decoration: none;
   }
   
-  .trips__block__pic-wrap {
+  .trip__block__pic-wrap {
     position: relative;
     width: 100%;
     padding-top: 67%;
@@ -68,22 +66,8 @@
     animation-name: fade-img;
     animation-duration: 2s;
   }
-/*   
-  .trips__block__pic-wrap::after {
-    content: attr(data-category);
-    position: absolute;
-    bottom: 0;
-    margin-left: 10px;
-    padding: 6px 8px;
-    max-width: calc((100%) - 60px);
-    font-size: 12px;
-    font-weight: 700;
-    color: #fff;
-    background-color: #1f98f4;
-    box-sizing: border-box;
-  } */
   
-  .trips__block__img {
+  .trip__block__img {
     position: absolute;
     top: 0;
     right: 0;
@@ -98,15 +82,16 @@
     transition: all 0.2s linear;
   }
   
-  /* .trips__block__img:hover {
+  .trip__block__img:hover {
     transform: scale(1.1);
-  } */
+  }
   
-  .trips__block__info {
+  .trip__block__info {
+    background-color: #fff;
     padding: 20px 30px 30px;
   }
   
-  .trips__block__text {
+  .trip__block__text {
     color: #252e48;
     font-size: 18px;
     line-height: 24px;

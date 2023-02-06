@@ -7,15 +7,22 @@ function Trips (props) {
     const trips = [props.golfer.attributes.golfer_trips.data[0]]
 
     const listTrips = trips.map((trip) =>
-      <TripBlock id={trip.id} tripNumber={trip.trip_number} totalCost={trip.total_cost}/>
+        <li className='trip__block' key={trip.id}>
+          <TripBlock id={trip.id} tripNumber={trip.trip_number} totalCost={trip.total_cost} tripYear={trip.trip_year}/>
+        </li>
     );
     
     return ( 
         <div className='trips'>
           <h1>Welcome back, {props.golfer.attributes.first_name}!</h1>
-            <ul className='trips__blocks'>
-            {listTrips}
-            </ul>
+          <h3>Your Trip History:</h3>
+            <div className='trips__container'>
+              <div className='trips__wrapper'>
+              <ul className='trip__blocks'>
+                {listTrips}
+              </ul>
+              </div>
+            </div>
         </div>
     );
 }
