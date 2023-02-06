@@ -9,6 +9,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+    flex-flow: column;
   }
 
   h1 {
