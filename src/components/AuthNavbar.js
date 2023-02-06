@@ -26,14 +26,14 @@ function AuthNavbar(props) {
         <div className="navbar-container">
           <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
             KPC
-            <i class="fa-solid fa-golf-ball-tee"></i>
+            <i className="fa-solid fa-golf-ball-tee"></i>
           </Link>
           <div className='menu-icon' onClick={handleClick}> 
             <i className={click ? 'fas fa-times' : 'fas fa-bars'}></i>
           </div>
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
             <li className='nav-item'>
-              <Link to='/dashboard' className='nav-links' onClick={closeMobileMenu}>
+              <Link to='/trips' className='nav-links' onClick={closeMobileMenu}>
                 TRIPS
               </Link>
             </li>

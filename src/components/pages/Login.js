@@ -33,7 +33,7 @@ function Login(props) {
         .then(response => {
         if(response.data.data.id) {
             props.handleLogin(response.data.data)
-            props.navigate('/dashboard');
+            props.navigate('/trips');
         }
       }
     ) .catch(error => console.log('api errors:', error))

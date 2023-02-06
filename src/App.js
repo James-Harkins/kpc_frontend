@@ -6,7 +6,7 @@ import AuthNavbar from './components/AuthNavbar';
 import Home from './components/pages/Home';
 import Register from './components/pages/Register';
 import Login from './components/pages/Login';
-import Dashboard from './components/pages/Dashboard';
+import Trips from './components/pages/Trips';
 import axios from 'axios';
 
 function App() {
@@ -19,7 +19,6 @@ function App() {
   const handleLogin = (data) => {
     setIsLoggedIn(true)
     setGolfer(data)
-    debugger;
     getNextTrip();
   };
 
@@ -44,8 +43,8 @@ function App() {
           <Route path='/' exact element={<Home/>}/>
           <Route path='/register' exact element={<Register/>}/>
           <Route path='/login' exact element={<Login handleLogin={handleLogin}/>}/>
-          <Route path='/dashboard' exact element={isLoggedIn ? 
-            <Dashboard golfer={golfer} nextTrip={nextTrip}/> : 
+          <Route path='/trips' exact element={isLoggedIn ? 
+            <Trips golfer={golfer} nextTrip={nextTrip}/> : 
             <Navigate to="/login" replace={true} />
             }/>
         </Routes>
