@@ -17,15 +17,15 @@ function Trips (props) {
         <div className='trips'>
           <h1>Welcome back, {props.golfer.attributes.first_name}!</h1>
           {props.golferIsRegistered ? props.golferIsRegistered :
-          <Link to='/register_next_trip' className='nextTripLink'>
+          <Link to='/register_next_trip' className='next-trip-link'>
             Click here to register for the next KPC!
           </Link>}
             <div className='trips__container'>
             <h3>Your Trip History:</h3>
               <div className='trips__wrapper'>
-              <ul className='trip__blocks'>
-                {listTrips}
-              </ul>
+                <ul className='trip__blocks'>
+                  {listTrips}
+                </ul>
               </div>
             </div>
         </div>
