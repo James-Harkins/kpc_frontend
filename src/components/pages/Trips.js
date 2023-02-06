@@ -32,7 +32,7 @@ function Trips (props) {
           <h1>Welcome back, {props.golfer.attributes.first_name}!</h1>
           {props.golferIsRegistered ? props.golferIsRegistered :
           <Link to='/register_next_trip' className='next-trip-link'>
-            Register for KPC {romanize(props.nextTrip.attributes.number)}
+            Register for the Next KPC 
           </Link>}
             <div className='trips__container'>
             <h3>Your Trip History:</h3>
