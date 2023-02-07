@@ -6,8 +6,6 @@
     background-size: cover;
     background-repeat: no-repeat;
     color: #fff;
-    align-items: center;
-    justify-content: center;
     text-align: center;
     flex-flow: column;
     color: #fff;
@@ -22,6 +20,7 @@
     text-decoration: none;
     padding: 0.25rem .5rem;
     height: 50%;
+    justify-content: center;
   }
   
   .next-trip-link:hover {
@@ -45,13 +44,15 @@
   
   .trip__blocks {
     margin-bottom: 24px;
+    display: flex;
+    /* margin: 1em auto; */
   }
   
   .trip__block {
-    flex-flow: column;
     align-items: center;
     max-width: 1120px;
-    width: 90%;
+    height: 100%;
+    width: 100%;
     margin: 0 auto;
     display: flex;
     flex: 1;
@@ -68,6 +69,7 @@
     border-radius: 10px;
     overflow: hidden;
     text-decoration: none;
+    padding: 0.5em .25em;
   }
   
   .trip__block__pic-wrap {
@@ -96,10 +98,6 @@
     object-fit: cover;
     transition: all 0.2s linear;
   }
-  
-  /* .trip__block__img:hover {
-    transform: scale(1.1);
-  } */
   
   .trip__block__info {
     background-color: #fff;

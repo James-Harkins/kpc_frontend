@@ -5,8 +5,8 @@ import './Trips.css'
 import { Link } from 'react-router-dom'
 
 function Trips (props) {
-    const trips = [props.golfer.attributes.golfer_trips.data[0]]
-
+    const trips = props.golfer.attributes.golfer_trips.data
+    
     const listTrips = trips.map((trip) =>
         <li className='trip__block' key={trip.id}>
           <TripBlock id={trip.id} tripNumber={trip.trip_number} totalCost={trip.total_cost} tripYear={trip.trip_year}/>
@@ -30,16 +30,18 @@ function Trips (props) {
     return ( 
         <div className='trips'>
           <h1>Welcome back, {props.golfer.attributes.first_name}!</h1>
-          {props.golferIsRegistered ? props.golferIsRegistered :
           <Link to='/register_next_trip' className='next-trip-link'>
-            Register for the Next KPC 
-          </Link>}
+            Register for the next KPC 
+            {/* {romanize(props.nextTrip.attributes.number)}  */}
+          </Link>
             <div className='trips__container'>
             <h3>Your Trip History:</h3>
               <div className='trips__wrapper'>
+                {trips.length > 0 ? 
                 <ul className='trip__blocks'>
                   {listTrips}
-                </ul>
+                </ul> : 
+                <h3>You have not atteneded a KPC yet.</h3>}
               </div>
             </div>
         </div>

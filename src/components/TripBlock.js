@@ -29,7 +29,8 @@ function TripBlock(props) {
           <div className='trip__block__info'>
             <h5 className='trip__block__text'>KPC {romanize(props.tripNumber)}</h5>
             <h5 className='trip__block__text'>{props.tripYear}</h5>
-            <h5 className='trip__block__text'>Total Cost: ${props.totalCost}</h5>
+            <h5 className='trip__block__text'>Total Cost:</h5>
+            <h5 className='trip__block__text'>${props.totalCost}</h5>
           </div>
         </div>
     </>

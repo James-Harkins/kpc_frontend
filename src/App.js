@@ -16,19 +16,15 @@ function App() {
 
   const [nextTrip, setNextTrip] = useState({});
 
-  const [golferIsRegistered, setGolferIsRegistered] = useState(false);
-
   const handleLogin = (data) => {
     setIsLoggedIn(true)
     setGolfer(data)
     getNextTrip();
-    // checkIfGolferRegistered();
   };
 
   const handleLogout = () => {
     setIsLoggedIn(false)
     setGolfer({});
-    // setGolferIsRegistered(false);
   };
 
   const getNextTrip = () => {
@@ -37,14 +33,8 @@ function App() {
     .then(response => {
       setNextTrip(response.data.data)
     })
-  }
-
-  // const checkIfGolferRegistered = nextTrip.attributes.golfers.map((trip_golfer) =>
-  //     {if(trip_golfer.id == golfer.id) {
-  //       setGolferIsRegistered(true);
-  //     }}
-  //   );
-
+  };
+    
   return (
     <>
       <Router>
@@ -54,7 +44,7 @@ function App() {
           <Route path='/register' exact element={<Register/>}/>
           <Route path='/login' exact element={<Login handleLogin={handleLogin}/>}/>
           <Route path='/trips' exact element={isLoggedIn ? 
-            <Trips golfer={golfer} nextTrip={nextTrip} golferIsRegistered={golferIsRegistered}/> : 
+            <Trips golfer={golfer} nextTrip={nextTrip}/> : 
             <Navigate to="/login" replace={true} />
             }/>
         </Routes>
