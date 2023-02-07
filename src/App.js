@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 import UnauthNavbar from './components/UnauthNavbar';
@@ -19,7 +19,6 @@ function App() {
   const handleLogin = (data) => {
     setIsLoggedIn(true)
     setGolfer(data)
-    getNextTrip();
   };
 
   const handleLogout = () => {
@@ -34,6 +33,10 @@ function App() {
       setNextTrip(response.data.data)
     })
   };
+
+  useEffect(() => {
+    getNextTrip();
+  }, []);
     
   return (
     <>
