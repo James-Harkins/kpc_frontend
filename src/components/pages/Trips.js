@@ -34,12 +34,15 @@ function Trips (props) {
             Register for KPC {romanize(props.nextTrip.attributes.number)} 
           </Link>
             <div className='trips__container'>
-            <h3>Your Trip History:</h3>
               <div className='trips__wrapper'>
                 {trips.length > 0 ? 
-                <ul className='trip__blocks'>
-                  {listTrips}
-                </ul> : 
+                <>
+                  <h3>Your Trip History:</h3>
+                  <ul className='trip__blocks'>
+                    {listTrips}
+                  </ul>
+                </>
+                : 
                 <h3>You have not atteneded a KPC yet.</h3>}
               </div>
             </div>
