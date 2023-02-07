@@ -4,14 +4,7 @@
     padding: 0;
     font-family: 'PT Sans', sans-serif;
   }
-  
-  .trips {
-    /* background-image: url('/images/img-2.jpg'); */
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: #fff;
-  }
+
   
   .login {
     display: flex;
