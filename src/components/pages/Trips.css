@@ -1,5 +1,4 @@
 .trips {
-    display: flex;
     height: 90vh;
     background-image: url('../../../public/images/course_7.jpeg');
     background-position: center;
@@ -14,13 +13,12 @@
 
   .next-trip-link {
     background: white;
+    width: 50%;
     color: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
-    display: flex;
-    align-items: center;
+    padding: 15px 25px;
     text-decoration: none;
-    padding: 0.25rem .5rem;
-    height: 50%;
-    justify-content: center;
+    align-items: center;
+    line-height: 3em;
   }
   
   .next-trip-link:hover {
