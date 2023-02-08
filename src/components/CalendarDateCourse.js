@@ -7,8 +7,8 @@ function CalendarDateCourse(props) {
     {
         Object.keys(props.course).includes('cost') ? 
         <>
-            <h5>Course: {props.course.name}</h5>
-            <h5>Cost: ${props.course.cost}</h5>    
+            <input type='checkbox'/>
+            <label>Course: ${props.course.cost}</label>
         </>
         :
         null

@@ -6,7 +6,10 @@ function CalendarDateNight(props) {
     <>
     {   
         Object.keys(props.night).includes('cost') ?
-        <h5>House Cost: ${props.night.cost}</h5>
+        <>
+            <input type='checkbox'/>  
+            <label>Stay at House: ${props.night.cost}</label>
+        </>
         :
         null         
     }

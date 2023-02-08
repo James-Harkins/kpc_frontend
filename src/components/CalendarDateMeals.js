@@ -5,7 +5,8 @@ function CalendarDateMeals(props) {
 
   const listMeals = meals.map((meal) => 
     <>
-      <h5>{meal.time_of_day}: ${meal.cost}</h5>
+      <input type='checkbox'/>
+      <label>{meal.time_of_day}: ${meal.cost}</label>
     </>
   )
 

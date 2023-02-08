@@ -8,9 +8,9 @@ function CalendarDate(props) {
   return (
     <>
         <h5>{props.day.date}</h5>
-        <CalendarDateNight night={props.day.night}/>
-        <CalendarDateCourse course={props.day.course}/>
-        <CalendarDateMeals meals={props.day.meals}/>        
+        <CalendarDateNight night={props.day.night} updateNights={props.updateNights}/>
+        <CalendarDateCourse course={props.day.course} updateCourses={props.updateCourses}/>
+        <CalendarDateMeals meals={props.day.meals} updateMeals={props.updateMeals}/>        
     </>
   );
 }
