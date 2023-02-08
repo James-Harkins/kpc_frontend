@@ -35,6 +35,20 @@ function App() {
     })
   };
 
+  const refreshGolfer = () => {
+    axios.get('http://localhost:3001/api/v1/login_status', 
+    {withCredentials: true})    
+    .then(response => {
+      if (response.data.data.id) {
+        setIsLoggedIn(true)
+        setGolfer(response.data.data)
+      } else {
+        setIsLoggedIn(false)
+        setGolfer(response.data.data)
+      }
+    })
+  }
+
   useEffect(() => {
     getNextTrip();
   }, []);
@@ -55,7 +69,7 @@ function App() {
           }/>
           <Route path='/trip_register' exact element={
             isLoggedIn ?
-            <TripRegister golfer={golfer} nextTrip={nextTrip} />
+            <TripRegister golfer={golfer} nextTrip={nextTrip} refreshGolfer={refreshGolfer}/>
             :
             <Navigate to="/login" replace={true} />
           }/>

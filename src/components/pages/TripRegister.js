@@ -67,6 +67,7 @@ function TripRegister (props) {
         axios.post(url, {golfer_trip}, {withCredentials: true})
             .then(response => {
             if(response.data.data.id) {
+                props.refreshGolfer();
                 props.navigate('/trips');
             }
           }
