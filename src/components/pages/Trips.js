@@ -20,7 +20,7 @@ function Trips (props) {
             props.golfer.attributes.is_registered_for_next_trip ?
             <h3>See you at KPC {props.nextTrip.attributes.number}!</h3>
             :
-            <Link to='/register_next_trip' className='next-trip-link'>
+            <Link to='/trip_register' className='next-trip-link'>
                 Register for KPC {props.nextTrip.attributes.number} 
             </Link>
           }
