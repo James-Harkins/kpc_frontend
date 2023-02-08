@@ -1,6 +1,6 @@
 # KPC - Front End 
 
-<img width="698" alt="image" src="https://user-images.githubusercontent.com/93609855/217671789-38522ce8-3e9d-4c5a-8770-867ffbb4b97e.png">
+![image](https://user-images.githubusercontent.com/93609855/217676848-e3775ad9-1812-4d3c-9921-c048d56e3b60.png)
 
 ## Overview 
 
