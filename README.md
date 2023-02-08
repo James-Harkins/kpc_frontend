@@ -11,8 +11,8 @@ This is the documentation for the Front End app, written on ReactJS (Version 18.
 ## Pages
 
 1. [HOME](#home)
-2. [REGISTER](#register)
-3. [LOGIN](#login)
+2. [LOGIN](#login)
+3. [REGISTER](#register)
 4. [TRIPS](#trips)
 5. [TRIP-REGISTER](#trip-register)
 
