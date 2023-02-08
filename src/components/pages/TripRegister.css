@@ -27,3 +27,8 @@
     background-color: white;
     color: black;    
 }
+
+.trip-register-form-container-list input[type='checkbox'] {
+    margin-right: 10px;
+    margin-left: 10px;
+}
