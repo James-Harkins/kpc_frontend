@@ -1,4 +1,29 @@
 .trip-register-container {
     text-align: center;
     font-size: 20px;
+    background-image: url('../../../public/images/course_9.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+.trip-register-form-container {
+    width: 50%;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.trip-register-form-container > h2 {
+    background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
+    color: white;
+}
+
+.trip-register-form-container-list {
+    display: flex;
+    flex-flow: column;
+    background-color: white;
+    color: black;    
 }

@@ -3,7 +3,7 @@ import CourseCheckbox from './CourseCheckbox';
 
 function CalendarDateCourse(props) {
   const id = props.course.id 
-  const label = `Course: $${props.course.cost}`
+  const label = `Golf: $${props.course.cost}`
 
   return (
     <>

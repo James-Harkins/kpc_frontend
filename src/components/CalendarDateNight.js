@@ -3,7 +3,7 @@ import NightCheckbox from './NightCheckbox';
 
 function CalendarDateNight(props) {
   const id = props.night.id 
-  const label = `Stay at House: $${props.night.cost}`
+  const label = `House: $${props.night.cost}`
 
   return (
     <>
