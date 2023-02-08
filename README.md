@@ -52,3 +52,7 @@ This page shows a form consisting of several blocks representing each day of the
 
 <img width="1440" alt="Screenshot 2023-02-08 at 4 32 46 PM" src="https://user-images.githubusercontent.com/93609855/217675693-30a3e120-5f60-4ea8-b8c4-193aae15e6f7.png">
 <img width="1440" alt="image" src="https://user-images.githubusercontent.com/93609855/217675772-5d7a0ca7-d663-4c32-a31a-0518a75aaafd.png">
+
+## Future Features
+
+In the future, I would like to add some additional features to this project. First and foremost, I would like to build in some administrator authorizations for a special dashboard, where the trip organizers can see which golfers are registered for which nights, meals, and courses for any given trip. I would also like to expand the `Trips` page, so that users can see some additional information about the house for a given trip, the courses that they will play over the week, and maybe even the meals they will eat at the house throughout the week. 
