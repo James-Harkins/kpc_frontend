@@ -20,29 +20,38 @@ function TripRegister (props) {
     
     const [courses, setCourses] = useState([])
 
-    const updateNights = (id) => {
-        if(nights.indexOf(id) > -1) {
-            setNights(prev_id => prev_id !== id)
-        } else {
-            setNights([...nights, id])
-        }
-    }
+    const addToNights = id => {
+        const updatedNights = [...nights];
+        updatedNights.push(id);
+        setNights(updatedNights);
+      };
+    
+      const removeFromNights = id => {
+        const updatedNights = nights.filter(nightId => nightId !== id);
+        setNights(updatedNights);
+      };
 
-    const updateMeals = (id) => {
-        if(meals.includes(id)) {
-            setMeals(prev_id => prev_id !== id)
-        } else {
-            setMeals([...meals, id])
-        }
-    }
+    const addToMeals = id => {
+        const updatedMeals = [...meals];
+        updatedMeals.push(id);
+        setMeals(updatedMeals);
+      };
 
-    const updateCourses = (id) => {
-        if(courses.includes(id)) {
-            setCourses(prev_id => prev_id !== id)
-        } else {
-            setCourses([...courses, id])
-        }
-    }
+    const removeFromMeals = id => {
+        const updatedMeals = meals.filter(mealId => mealId !== id);
+        setMeals(updatedMeals);
+      };
+
+    const addToCourses = id => {
+    const updatedCourses = [...courses];
+    updatedCourses.push(id);
+    setCourses(updatedCourses);
+    };
+
+    const removeFromCourses = id => {
+        const updatedCourses = courses.filter(courseId => courseId !== id);
+        setCourses(updatedCourses);
+      };
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -68,16 +77,19 @@ function TripRegister (props) {
         <>
         <div className='trip-register-container'>
             <h1>REGISTER FOR KPC {props.nextTrip.attributes.number}</h1>
-            <h3>Check off each night, round, and meal for which you will be in attendance, then click Submit.</h3>
+            <h4>Check off each night, round, and meal for which you will be in attendance, then click Submit.</h4>
             <form className='trip-register-form' onSubmit={handleSubmit}>
                 <ul className='calendar-days-list'>
                     {tripCalendar.map((day) =>
                         <li key={day.date}>
                             <CalendarDate 
                                 day={day} 
-                                updateNights={updateNights} 
-                                updateMeals={updateMeals} 
-                                updateCourses={updateCourses}
+                                addToNights={addToNights}
+                                removeFromNights={removeFromNights}
+                                addToMeals={addToMeals}
+                                removeFromMeals={removeFromMeals}
+                                addToCourses={addToCourses}
+                                removeFromCourses={removeFromCourses}
                             />
                         </li>
                     )}

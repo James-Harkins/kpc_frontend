@@ -1,14 +1,21 @@
 import React from 'react';
+import CourseCheckbox from './CourseCheckbox';
 
 function CalendarDateCourse(props) {
+  const id = props.course.id 
+  const label = `Course: $${props.course.cost}`
 
   return (
     <>
     {
         Object.keys(props.course).includes('cost') ? 
         <>
-            <input type='checkbox'/>
-            <label>Course: ${props.course.cost}</label>
+            <CourseCheckbox 
+                id={id}
+                label={label}
+                addToCourses={props.addToCourses}
+                removeFromCourses={props.removeFromCourses}
+            />
         </>
         :
         null

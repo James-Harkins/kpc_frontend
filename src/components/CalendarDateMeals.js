@@ -1,12 +1,17 @@
 import React from 'react';
+import MealCheckbox from './MealCheckbox';
 
 function CalendarDateMeals(props) {
   const meals = props.meals
 
   const listMeals = meals.map((meal) => 
     <>
-      <input type='checkbox'/>
-      <label>{meal.time_of_day}: ${meal.cost}</label>
+        <MealCheckbox 
+            id={meal.id}
+            label={`${meal.time_of_day}: $${meal.cost}`}
+            addToMeals={props.addToMeals}
+            removeFromMeals={props.removeFromMeals}
+        />
     </>
   )
 

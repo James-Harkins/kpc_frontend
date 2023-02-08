@@ -8,9 +8,19 @@ function CalendarDate(props) {
   return (
     <>
         <h2>{props.day.date}</h2>
-        <CalendarDateNight night={props.day.night} updateNights={props.updateNights}/>
-        <CalendarDateCourse course={props.day.course} updateCourses={props.updateCourses}/>
-        <CalendarDateMeals meals={props.day.meals} updateMeals={props.updateMeals}/>        
+        <CalendarDateNight 
+            night={props.day.night} 
+            addToNights={props.addToNights}
+            removeFromNights={props.removeFromNights}
+        />
+        <CalendarDateCourse course={props.day.course} 
+            addToCourses={props.addToCourses}
+            removeFromCourses={props.removeFromCourses}
+        />
+        <CalendarDateMeals meals={props.day.meals} 
+            addToMeals={props.addToMeals}
+            removeFromMeals={props.removeFromMeals}
+        />        
     </>
   );
 }
