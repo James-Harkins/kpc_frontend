@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/kpc_frontend/static/css/main.839ae78f.css",
+    "main.js": "/kpc_frontend/static/js/main.9e8e12aa.js",
+    "static/media/course_1.jpeg": "/kpc_frontend/static/media/course_1.0af1cf76f725c1f3e652.jpeg",
+    "static/media/course_4.jpeg": "/kpc_frontend/static/media/course_4.8e64bd890836eb1f65de.jpeg",
+    "static/media/course_9.jpeg": "/kpc_frontend/static/media/course_9.e92940c33b12209d52dd.jpeg",
+    "static/media/course_2.jpeg": "/kpc_frontend/static/media/course_2.d85f3d95abe84ff11d87.jpeg",
+    "index.html": "/kpc_frontend/index.html",
+    "main.839ae78f.css.map": "/kpc_frontend/static/css/main.839ae78f.css.map",
+    "main.9e8e12aa.js.map": "/kpc_frontend/static/js/main.9e8e12aa.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.839ae78f.css",
+    "static/js/main.9e8e12aa.js"
+  ]
+}
