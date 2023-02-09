@@ -8,6 +8,10 @@ KPC is an app used for management of the world's most glorious golf outing, the 
 
 This is the documentation for the Front End app, written on ReactJS (Version 18.2.0). It fetches data from the [Back End API](https://github.com/James-Harkins/kpc_backend) and allows users to register, log in, view the previous trips they have attended and their costs, as well as register for the next upcoming trip. Future goals for the project will be discussed at the end of this document.
 
+### Note: 
+
+This app is not currently deployed. To test locally, fork and clone the [back end repo](https://github.com/James-Harkins/kpc_backend), then run `bundle install` and `rails db:{create,migrate,seed}.` Then you will need to run `bundle exec figaro install` to create the `config/application.yml` file, in which you will need to create an `API_KEY` environment variable with any value you want. Then you can run the tests to make sure everything is passing locally by running `bundle exec rspec`. Then run `rails s` to spin up the server, which will run at `localhost:3001`. Next, fork and clone this repo, then run `npm install` to install dependencies. Next you will need to create a file called `.env` in the root directory of the repo, in which you will need to create an environment variable called `REACT_APP_API_KEY` with a value of your `API_KEY` env var from the back end app. Then you can run `npm start` from the terminal, which will open up the app in your browser and you will have access to its full functionality. Check the `seeds.rb` file in the back end app to see data for the seeded golfers, or create your own file and register for the upcoming trip. Happy golfing! 
+
 ## Pages
 
 1. [HOME](#home)
