@@ -27,7 +27,7 @@ function Login(props) {
       password: password
     }
     
-    let url = 'http://localhost:3001/api/v1/login?api_key='.concat(process.env.REACT_APP_API_KEY)
+    let url = 'https://kpc-backend.herokuapp.com/api/v1/login?api_key='.concat(process.env.REACT_APP_API_KEY)
     
     axios.post(url, {golfer}, {withCredentials: true})
         .then(response => {

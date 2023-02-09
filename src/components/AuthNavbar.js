@@ -13,7 +13,7 @@ function AuthNavbar(props) {
   const closeMobileMenu = () => setClick(false);
 
   const closeAndLogOut = (event) => {
-    axios.post('http://localhost:3001/api/v1/logout?api_key='.concat(process.env.REACT_APP_API_KEY), 
+    axios.post('https://kpc-backend.herokuapp.com/api/v1/logout?api_key='.concat(process.env.REACT_APP_API_KEY), 
     {withCredentials: true});
     props.handleLogout();
     closeMobileMenu(); 
