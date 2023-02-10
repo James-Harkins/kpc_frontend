@@ -28,7 +28,7 @@ function App() {
   };
 
   const getNextTrip = () => {
-    axios.get('https://kpc-backend.herokuapp.com/api/v1/next_trip?api_key='.concat(process.env.REACT_APP_API_KEY), 
+    axios.get('http://localhost:3001/api/v1/next_trip?api_key='.concat(process.env.REACT_APP_API_KEY), 
     {withCredentials: true})    
     .then(response => {
       setNextTrip(response.data.data)
@@ -36,7 +36,7 @@ function App() {
   };
 
   const refreshGolfer = () => {
-    axios.get('https://kpc-backend.herokuapp.com/api/v1/login_status', 
+    axios.get('http://localhost:3001/api/v1/login_status', 
     {withCredentials: true})    
     .then(response => {
       if (response.data.data.id) {

@@ -12,7 +12,7 @@ function TripRegister (props) {
 
     const tripCalendar = props.nextTrip.attributes.calendar
 
-    const url = `https://kpc-backend.herokuapp.com/api/v1/golfers/${golfer_id}/golfer_trips?api_key=${process.env.REACT_APP_API_KEY}`
+    const url = `http://localhost:3001/api/v1/golfers/${golfer_id}/golfer_trips?api_key=${process.env.REACT_APP_API_KEY}`
     
     const [nights, setNights] = useState([])
 
